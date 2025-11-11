@@ -1,0 +1,59 @@
+[
+  {
+    "id": "c101",
+    "title": "Introdução ao Python",
+    "area": "programming",
+    "instructor": "Dra. Ada L.",
+    "short_description": "Aprenda os fundamentos da linguagem Python, desde variáveis até funções.",
+    "img": "/img/courses/python.png",
+    "modules": [
+      "Variáveis e Tipos de Dados",
+      "Estruturas Condicionais (if/else)",
+      "Laços de Repetição (for/while)",
+      "Funções e Escopo"
+    ]
+  },
+  {
+    "id": "c102",
+    "title": "PHP Essencial para Web",
+    "area": "programming",
+    "instructor": "Sr. Rasmus L.",
+    "short_description": "Domine o PHP e aprenda a criar sites dinâmicos e processar formulários.",
+    "img": "/img/courses/php.png",
+    "modules": [
+      "Configuração do Ambiente (XAMPP/Docker)",
+      "Sintaxe Básica e Variáveis",
+      "Arrays e Loops",
+      "Superglobais (GET/POST)",
+      "Funções e Includes"
+    ]
+  },
+  {
+    "id": "c201",
+    "title": "Design de UI/UX com Figma",
+    "area": "design",
+    "instructor": "Sr. Dylan F.",
+    "short_description": "Crie interfaces de usuário (UI) modernas e protótipos interativos.",
+    "img": "/img/courses/figma.png",
+    "modules": [
+      "Princípios do Design de Interface",
+      "Wireframes e Fluxos de Usuário",
+      "Prototipagem de Baixa e Alta Fidelidade",
+      "Design Systems e Componentes"
+    ]
+  },
+  {
+    "id": "c301",
+    "title": "Gestão Ágil com Scrum",
+    "area": "business",
+    "instructor": "Sra. Ken S.",
+    "short_description": "Aprenda o framework Scrum para gerenciar projetos de forma eficiente.",
+    "img": "/img/courses/scrum.png",
+    "modules": [
+      "O Manifesto Ágil",
+      "Papéis do Scrum (PO, SM, Dev Team)",
+      "Eventos (Sprint, Planning, Daily, Review)",
+      "Artefatos (Product Backlog, Sprint Backlog)"
+    ]
+  }
+]

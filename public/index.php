@@ -1,17 +1,12 @@
 <?php
-require '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Application\Hello;
+
+require __DIR__ . '/../includes/page-top.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link href="/css/default.css" rel="stylesheet" />
-    <title>Document</title>
-</head>
-<body>
-    <h1>PHP & Mysql</h1>
+
+    <h1>PHP &amp; MySQL</h1>
     <p><?= Hello::message() ?></p>
-</body>
-</html>
+
+<?php require __DIR__ . '/../includes/page-bottom.php';
