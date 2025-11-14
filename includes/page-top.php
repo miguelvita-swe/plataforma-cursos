@@ -5,13 +5,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/default.css" rel="stylesheet" />
     <title>Plataforma de Cursos</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a class="brand" href="/">Plataforma</a>
+            <a class="brand" href="/">UniFio Cursos</a>
             <ul class="nav">
                 <li class="nav-item"><a href="/">Home</a></li>
                 <li class="nav-item dropdown">

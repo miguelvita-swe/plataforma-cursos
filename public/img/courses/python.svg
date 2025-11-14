@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Python Logo SVG -->
+  <rect width="200" height="200" fill="#f5f5f5"/>
+  
+  <!-- Blue Python section -->
+  <path d="M 30 60 C 30 50 38 40 48 40 L 80 40 C 90 40 100 50 100 60 L 100 80 L 30 80 Z" fill="#1f5b96" rx="8"/>
+  
+  <!-- Yellow Python section -->
+  <path d="M 100 60 L 100 80 L 170 80 C 180 80 190 90 190 100 C 190 110 180 120 170 120 L 100 120 L 100 140 C 100 150 90 160 80 160 L 50 160 C 40 160 30 150 30 140 L 30 100 L 100 100 Z" fill="#ffd93d" rx="8"/>
+  
+  <!-- Circles decoration -->
+  <circle cx="50" cy="50" r="4" fill="white" opacity="0.6"/>
+  <circle cx="160" cy="110" r="4" fill="white" opacity="0.6"/>
+</svg>

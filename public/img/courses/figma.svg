@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Figma Logo SVG -->
+  <rect width="200" height="200" fill="#f5f5f5"/>
+  
+  <!-- Magenta circle (top-left portion) -->
+  <circle cx="55" cy="55" r="32" fill="#ff2d9f"/>
+  
+  <!-- Cyan circle (right) -->
+  <circle cx="145" cy="100" r="32" fill="#00d4ff"/>
+  
+  <!-- Green circle (bottom-left) -->
+  <circle cx="55" cy="145" r="32" fill="#00d084"/>
+  
+  <!-- Purple/Blue circle (middle) -->
+  <circle cx="100" cy="100" r="28" fill="#9d4edd"/>
+</svg>

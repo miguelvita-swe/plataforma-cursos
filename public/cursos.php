@@ -8,12 +8,22 @@ if ($area !== '') {
 } else {
     $courses = getAllCourses();
 }
+
+// Definir título da página conforme a área
+$titles = [
+    'programming' => 'Cursos de Programação',
+    'design' => 'Cursos de Design',
+    'business' => 'Cursos de Negócios'
+];
+$pageTitle = $titles[$area] ?? 'Todos os Nossos Cursos';
 ?>
 
-<h1>Catálogo de Cursos</h1>
+<h1><?= htmlspecialchars($pageTitle) ?></h1>
 
 <?php if (empty($courses)): ?>
-    <p>Nenhum curso encontrado para a área selecionada.</p>
+    <div class="alert-danger">
+        <p>Nenhum curso encontrado para a área selecionada.</p>
+    </div>
 <?php else: ?>
     <div class="courses-grid">
         <?php foreach ($courses as $course): ?>
@@ -27,6 +37,7 @@ if ($area !== '') {
                     </h3>
                     <p class="card-instructor">Instrutor: <?= htmlspecialchars($course['instructor'] ?? '') ?></p>
                     <p class="card-desc"><?= htmlspecialchars($course['short_description'] ?? '') ?></p>
+                    <a href="/curso-detalhe.php?id=<?= urlencode($course['id']) ?>" class="btn">Ver Detalhes do Curso</a>
                 </div>
             </div>
         <?php endforeach; ?>
