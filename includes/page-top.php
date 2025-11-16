@@ -24,6 +24,8 @@
                         <li><a href="/cursos.php">Todos</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a href="/equipe.php">Equipe</a></li>
+                <li class="nav-item"><a href="/minhas-inscricoes.php">Minhas Inscrições</a></li>
             </ul>
         </nav>
     </header>

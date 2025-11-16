@@ -10,6 +10,10 @@ body {
     color: #333;
     line-height: 1.6;
 }
+/* Prevent horizontal scrollbars caused by full-width sections */
+body {
+    overflow-x: hidden;
+}
 
 /* HEADER E NAVBAR */
 header {
@@ -19,6 +23,12 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+/* Ensure dropdowns can overflow the header area */
+header,
+.navbar {
+    overflow: visible;
 }
 
 .navbar {
@@ -77,18 +87,32 @@ header {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: calc(100% + 6px);
+    left: -25px;
     background-color: #0041a0;
     list-style: none;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 3000; /* higher than header and most elements */
+    white-space: nowrap; /* avoid wrapping that may cut the box */
 }
 
 .dropdown:hover .dropdown-menu {
     display: flex;
     flex-direction: column;
+}
+
+/* Mobile: make dropdowns flow in the nav stack to avoid absolute positioning issues */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        display: none; /* remains hidden until explicit toggle (behavior not implemented) */
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 }
 
 .dropdown-menu li {
@@ -311,8 +335,14 @@ p {
     padding: 80px 20px;
     background: linear-gradient(135deg, #0051ba 0%, #003d7a 100%);
     color: white;
-    margin: -50px -20px 50px -20px;
     border-radius: 0;
+
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .hero-section h1 {
@@ -492,8 +522,8 @@ p {
     background-color: #2a2a2a;
     color: #ccc;
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 50px;
+    padding: 15px 10px;
+    margin-top: 25px;
     border-top: 1px solid #444;
 }
 
@@ -501,6 +531,12 @@ p {
     margin: 0;
     font-size: 13px;
     letter-spacing: 0.2px;
+}
+
+/* Reduce vertical height when using the global .container inside footer */
+.site-footer .container {
+    padding: 8px 20px;
+    min-height: 0;
 }
 
 /* SEÇÃO DE BENEFÍCIOS */
@@ -620,6 +656,14 @@ p {
 
 .stat-item {
     text-align: center;
+
+/* Keep hero content aligned with main container */
+.hero-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px; /* same vertical spacing as hero */
+    box-sizing: border-box;
+}
     color: white;
     animation: scaleUpFade 0.6s ease-out backwards;
 }
@@ -888,6 +932,214 @@ p {
     }
 
     .brand {
+        font-size: 18px;
+    }
+}
+
+/* SEÇÃO DE EQUIPE */
+.team-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.team-subtitle {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #0051ba;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.team-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 auto 25px;
+    max-width: 700px;
+}
+
+.team-description {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* TEAM GRID */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        gap: 20px;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* TEAM CARD */
+.team-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0, 81, 186, 0.18);
+    border-color: #0051ba;
+}
+
+.team-card-image-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    overflow: hidden;
+}
+
+.team-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-card:hover .team-card-image {
+    transform: scale(1.08);
+}
+
+.team-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 81, 186, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-card:hover .team-card-overlay {
+    opacity: 1;
+}
+
+.team-card-content {
+    padding: 35px 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+}
+
+.team-card-position {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0051ba;
+    margin: 0 0 18px 0;
+}
+
+.position-icon {
+    font-size: 18px;
+    display: inline-flex;
+}
+
+.team-card-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 60px 20px;
+    }
+    
+    .team-header {
+        margin-bottom: 50px;
+    }
+    
+    .team-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .team-description {
+        font-size: 14px;
+    }
+
+    .team-card-image-container {
+        height: 260px;
+    }
+    
+    .team-card-content {
+        padding: 28px 22px;
+    }
+    
+    .team-card-name {
+        font-size: 19px;
+    }
+    
+    .team-card-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card-image-container {
+        height: 240px;
+    }
+    
+    .team-card-content {
+        padding: 24px 18px;
+    }
+    
+    .team-card-name {
         font-size: 18px;
     }
 }
